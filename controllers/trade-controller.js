@@ -96,7 +96,7 @@ export const sellProduct = async (req, res, next) => {
             { new: true }
          );
 
-         if (product.quantity.some((qty) => qty.meter === 0)) {
+         if (product?.quantity?.some((qty) => qty.meter === 0)) {
             await ProductBaseModel.findOneAndUpdate(
                { _id: productId, "quantity._id": saleId },
                {
